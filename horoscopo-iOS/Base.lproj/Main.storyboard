@@ -1,24 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="25408" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4z-rw-kje">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25407"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--The Zoltan horoscope-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="horoscopo_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VdB-ik-bej">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HoroscopeCell" rowHeight="137" id="qod-X5-0ln" customClass="HoroscopeViewCell" customModule="horoscopo_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="137"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qod-X5-0ln" id="kco-lf-KMD">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="137"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aquarius-icon" translatesAutoresizingMaskIntoConstraints="NO" id="An8-ZT-00e">
+                                                    <rect key="frame" x="16" y="39.666666666666657" width="59" height="58"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9be-mM-R0H">
+                                                    <rect key="frame" x="83" y="16" width="294" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wea-eS-shP">
+                                                    <rect key="frame" x="83" y="48" width="294" height="73"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="An8-ZT-00e" firstAttribute="leading" secondItem="kco-lf-KMD" secondAttribute="leading" constant="16" id="c01-im-lead"/>
+                                                <constraint firstItem="An8-ZT-00e" firstAttribute="centerY" secondItem="kco-lf-KMD" secondAttribute="centerY" id="c02-im-cy"/>
+                                                <constraint firstItem="An8-ZT-00e" firstAttribute="width" constant="59" id="c03-im-w"/>
+                                                <constraint firstItem="An8-ZT-00e" firstAttribute="height" constant="58" id="c04-im-h"/>
+                                                <constraint firstItem="9be-mM-R0H" firstAttribute="leading" secondItem="An8-ZT-00e" secondAttribute="trailing" constant="8" id="c05-nm-lead"/>
+                                                <constraint firstAttribute="trailing" secondItem="9be-mM-R0H" secondAttribute="trailing" constant="16" id="c06-nm-trail"/>
+                                                <constraint firstItem="9be-mM-R0H" firstAttribute="top" secondItem="kco-lf-KMD" secondAttribute="top" constant="16" id="c07-nm-top"/>
+                                                <constraint firstItem="wea-eS-shP" firstAttribute="leading" secondItem="9be-mM-R0H" secondAttribute="leading" id="c08-dt-lead"/>
+                                                <constraint firstItem="wea-eS-shP" firstAttribute="trailing" secondItem="9be-mM-R0H" secondAttribute="trailing" id="c09-dt-trail"/>
+                                                <constraint firstItem="wea-eS-shP" firstAttribute="top" secondItem="9be-mM-R0H" secondAttribute="bottom" constant="8" id="c10-dt-top"/>
+                                                <constraint firstAttribute="bottom" secondItem="wea-eS-shP" secondAttribute="bottom" constant="16" id="c11-dt-bot"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="wea-eS-shP" id="rlV-by-6NN"/>
+                                            <outlet property="nameLabel" destination="9be-mM-R0H" id="Vcc-Nk-n61"/>
+                                            <outlet property="signImageView" destination="An8-ZT-00e" id="Sfe-ws-7kn"/>
+                                            <segue destination="doM-Mn-HRA" kind="show" id="cds-kx-CnQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VdB-ik-bej" secondAttribute="trailing" id="6Ph-M7-50Y"/>
+                            <constraint firstItem="VdB-ik-bej" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JfI-dc-Zvl"/>
+                            <constraint firstItem="VdB-ik-bej" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fPK-WY-Kh3"/>
+                            <constraint firstAttribute="bottom" secondItem="VdB-ik-bej" secondAttribute="bottom" id="tok-4r-yMU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="The Zoltan horoscope" id="FZb-5J-u0s"/>
+                    <connections>
+                        <outlet property="tableView" destination="VdB-ik-bej" id="tV1-aB-c2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1064.885496183206" y="130.98591549295776"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="OTl-sk-g0c">
+            <objects>
+                <viewController id="doM-Mn-HRA" customClass="DetailViewController" customModule="horoscopo_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zda-CX-UCo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aquarius-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dI1-img-001">
+                                <rect key="frame" x="146.66666666666666" y="83" width="100" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN1-nam-001">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-dat-001">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-seg-001">
+                                <rect key="frame" x="16" y="0.0" width="361" height="32"/>
+                                <segments>
+                                    <segment title="Día"/>
+                                    <segment title="Semana"/>
+                                    <segment title="Mes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="periodChanged:" destination="doM-Mn-HRA" eventType="valueChanged" id="dA1-act-001"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prediction" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-pre-001">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J4r-7A-2j5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dI1-img-001" firstAttribute="top" secondItem="J4r-7A-2j5" secondAttribute="top" constant="24" id="d01-dt-vw"/>
+<constraint firstItem="dI1-img-001" firstAttribute="centerX" secondItem="zda-CX-UCo" secondAttribute="centerX" id="d02-dt-vw"/>
+<constraint firstItem="dI1-img-001" firstAttribute="width" constant="100" id="d03-dt-vw"/>
+<constraint firstItem="dI1-img-001" firstAttribute="height" constant="100" id="d04-dt-vw"/>
+<constraint firstItem="dN1-nam-001" firstAttribute="top" secondItem="dI1-img-001" secondAttribute="bottom" constant="12" id="d05-dt-vw"/>
+<constraint firstItem="dN1-nam-001" firstAttribute="leading" secondItem="zda-CX-UCo" secondAttribute="leading" constant="16" id="d06-dt-vw"/>
+<constraint firstItem="dN1-nam-001" firstAttribute="trailing" secondItem="zda-CX-UCo" secondAttribute="trailing" constant="-16" id="d07-dt-vw"/>
+<constraint firstItem="dD1-dat-001" firstAttribute="top" secondItem="dN1-nam-001" secondAttribute="bottom" constant="4" id="d08-dt-vw"/>
+<constraint firstItem="dD1-dat-001" firstAttribute="leading" secondItem="dN1-nam-001" secondAttribute="leading" id="d09-dt-vw"/>
+<constraint firstItem="dD1-dat-001" firstAttribute="trailing" secondItem="dN1-nam-001" secondAttribute="trailing" id="d10-dt-vw"/>
+<constraint firstItem="dS1-seg-001" firstAttribute="top" secondItem="dD1-dat-001" secondAttribute="bottom" constant="24" id="d11-dt-vw"/>
+<constraint firstItem="dS1-seg-001" firstAttribute="leading" secondItem="zda-CX-UCo" secondAttribute="leading" constant="16" id="d12-dt-vw"/>
+<constraint firstItem="dS1-seg-001" firstAttribute="trailing" secondItem="zda-CX-UCo" secondAttribute="trailing" constant="-16" id="d13-dt-vw"/>
+<constraint firstItem="dP1-pre-001" firstAttribute="top" secondItem="dS1-seg-001" secondAttribute="bottom" constant="24" id="d14-dt-vw"/>
+<constraint firstItem="dP1-pre-001" firstAttribute="leading" secondItem="dS1-seg-001" secondAttribute="leading" id="d15-dt-vw"/>
+<constraint firstItem="dP1-pre-001" firstAttribute="trailing" secondItem="dS1-seg-001" secondAttribute="trailing" id="d16-dt-vw"/>
+<constraint firstItem="dP1-pre-001" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="J4r-7A-2j5" secondAttribute="bottom" constant="-16" id="d17-dt-vw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="dD1-dat-001" id="dO1-out-001"/>
+                        <outlet property="nameLabel" destination="dN1-nam-001" id="dO2-out-002"/>
+                        <outlet property="periodSegmentedControl" destination="dS1-seg-001" id="dO3-out-003"/>
+                        <outlet property="predictionLabel" destination="dP1-pre-001" id="dO4-out-004"/>
+                        <outlet property="signImageView" destination="dI1-img-001" id="dO5-out-005"/>
+                    </connections>
+                    <navigationItem key="navigationItem" title="Detail" id="39D-f9-hx1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yma-kx-Wng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817.5572519083969" y="130.98591549295776"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eqC-Gp-aX6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g4z-rw-kje" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SUO-Fl-3W1">
+                        <rect key="frame" x="0.0" y="59" width="393" height="106"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Q06-IS-82V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Qz-Mx-EKJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="aquarius-icon" width="800" height="800"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
