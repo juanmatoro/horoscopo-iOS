@@ -229,13 +229,13 @@ Se comprobaron en el simulador, salvo lo que se indica.
 
 ### 9.2 Indicador de carga
 
-- Mientras llega la respuesta se muestra "Consultando con las estrellas..." y
+- Mientras llega la respuesta se muestra "Consulting the stars..." (en español, "Consultando con las estrellas...") y
   un `UIActivityIndicatorView` (`startAnimating`/`stopAnimating`, con
   *Hides When Stopped*). El profesor lo hace con `isHidden`.
 - Si el usuario cambia de periodo antes de que llegue la respuesta, la
   petición anterior se **cancela** (`loadTask?.cancel()`), para que no pise a
   la nueva. El profesor no lo hace.
-- Si falla, se muestra "No se pudo cargar la predicción.".
+- Si falla, se muestra "The prediction could not be loaded.".
 - **Sin comprobar:** en la prueba la respuesta llegó antes de poder capturar
   la pantalla, así que no se llegó a ver el indicador en pantalla.
 

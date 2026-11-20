@@ -122,9 +122,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-seg-001">
                                 <rect key="frame" x="16" y="0.0" width="361" height="32"/>
                                 <segments>
-                                    <segment title="Día"/>
-                                    <segment title="Semana"/>
-                                    <segment title="Mes"/>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
                                 </segments>
                                 <connections>
                                     <action selector="periodChanged:" destination="doM-Mn-HRA" eventType="valueChanged" id="dA1-act-001"/>
@@ -136,6 +136,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTB-btn-001">
+                                <rect key="frame" x="16" y="0.0" width="80" height="34"/>
+                                <state key="normal" title="Translate"/>
+                                <connections>
+                                    <action selector="translateButtonClicked:" destination="doM-Mn-HRA" eventType="touchUpInside" id="dTB-act-001"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-ind-001"/>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4r-7A-2j5"/>
@@ -154,7 +161,9 @@
 <constraint firstItem="dS1-seg-001" firstAttribute="top" secondItem="dD1-dat-001" secondAttribute="bottom" constant="24" id="d11-dt-vw"/>
 <constraint firstItem="dS1-seg-001" firstAttribute="leading" secondItem="zda-CX-UCo" secondAttribute="leading" constant="16" id="d12-dt-vw"/>
 <constraint firstItem="dS1-seg-001" firstAttribute="trailing" secondItem="zda-CX-UCo" secondAttribute="trailing" constant="-16" id="d13-dt-vw"/>
-<constraint firstItem="dP1-pre-001" firstAttribute="top" secondItem="dS1-seg-001" secondAttribute="bottom" constant="24" id="d14-dt-vw"/>
+<constraint firstItem="dTB-btn-001" firstAttribute="top" secondItem="dS1-seg-001" secondAttribute="bottom" constant="12" id="dTB-c01-top"/>
+                            <constraint firstItem="dTB-btn-001" firstAttribute="leading" secondItem="dS1-seg-001" secondAttribute="leading" id="dTB-c02-lead"/>
+                            <constraint firstItem="dP1-pre-001" firstAttribute="top" secondItem="dTB-btn-001" secondAttribute="bottom" constant="12" id="d14-dt-vw"/>
 <constraint firstItem="dP1-pre-001" firstAttribute="leading" secondItem="dS1-seg-001" secondAttribute="leading" id="d15-dt-vw"/>
 <constraint firstItem="dP1-pre-001" firstAttribute="trailing" secondItem="dS1-seg-001" secondAttribute="trailing" id="d16-dt-vw"/>
 <constraint firstItem="dAI-ind-001" firstAttribute="top" secondItem="dP1-pre-001" secondAttribute="bottom" constant="16" id="dAI-c01-top"/>
@@ -170,6 +179,7 @@
                         <outlet property="periodSegmentedControl" destination="dS1-seg-001" id="dO3-out-003"/>
                         <outlet property="predictionLabel" destination="dP1-pre-001" id="dO4-out-004"/>
                         <outlet property="signImageView" destination="dI1-img-001" id="dO5-out-005"/>
+                        <outlet property="translateButton" destination="dTB-btn-001" id="dO8-out-008"/>
                     </connections>
                     <navigationItem key="navigationItem" title="Detail" id="39D-f9-hx1">
                         <rightBarButtonItems>

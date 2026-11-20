@@ -16,6 +16,8 @@ Tecnologías: Swift, UIKit, Storyboard, Xcode.
 
 Continuación: [Modo claro y oscuro con iconos tintados](MODO_CLARO_OSCURO.md).
 
+También: [Internacionalización y traducción de la predicción](INTERNACIONALIZACION.md).
+
 ---
 
 ## Índice
@@ -103,6 +105,10 @@ struct Horoscope {
     ]
 }
 ```
+
+> **Nota:** este es el modelo tal y como se creó al principio. Después se
+> internacionalizó: hoy `Horoscope` guarda solo el `id` y calcula `name` y `dates`
+> desde el catálogo de cadenas. Ver [Internacionalización](INTERNACIONALIZACION.md).
 
 Conceptos:
 

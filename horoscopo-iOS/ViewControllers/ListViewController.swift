@@ -44,7 +44,7 @@ class ListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         // La lista es la propia pantalla, no hace falta atenuarla al buscar
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar signo"
+        searchController.searchBar.placeholder = String(localized: "Search sign")
         navigationItem.searchController = searchController
         // Evita que la barra de búsqueda siga visible al navegar al detalle
         definesPresentationContext = true
