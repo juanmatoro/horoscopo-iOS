@@ -27,6 +27,7 @@ class HoroscopeViewCell: UITableViewCell {
         nameLabel.text = horoscope.name
         dateLabel.text = horoscope.dates
         signImageView.image = horoscope.icon
+        signImageView.tintColor = horoscope.color
     }
 
 }

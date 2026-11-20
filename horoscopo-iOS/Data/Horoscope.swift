@@ -17,6 +17,12 @@ struct Horoscope {
         return UIImage(named: "\(id)-icon")
     }
 
+    // Color propio del signo. El asset "<id>-color" define una variante para
+    // modo claro y otra para oscuro, y el sistema elige la correcta solo.
+    var color: UIColor {
+        return UIColor(named: "\(id)-color") ?? .label
+    }
+
     static let horoscopeList: [Horoscope] = [
         Horoscope(id: "aries", name: "Aries", dates: "21 de marzo - 19 de abril"),
         Horoscope(id: "taurus", name: "Tauro", dates: "20 de abril - 20 de mayo"),

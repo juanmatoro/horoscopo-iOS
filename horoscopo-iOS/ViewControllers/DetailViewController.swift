@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         guard let horoscope else { return }
         title = horoscope.name
         signImageView.image = horoscope.icon
+        signImageView.tintColor = horoscope.color
         nameLabel.text = horoscope.name
         dateLabel.text = horoscope.dates
         loadPrediction(for: .day)

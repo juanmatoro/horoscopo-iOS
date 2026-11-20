@@ -1,12 +1,15 @@
 {
-  "images" : [
+  "images": [
     {
-      "filename" : "cancer-icon.svg",
-      "idiom" : "universal"
+      "filename": "cancer-icon.svg",
+      "idiom": "universal"
     }
   ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
+  "info": {
+    "author": "xcode",
+    "version": 1
+  },
+  "properties": {
+    "template-rendering-intent": "template"
   }
 }

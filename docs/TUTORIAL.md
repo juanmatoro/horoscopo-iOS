@@ -13,6 +13,8 @@ y sirve de guía para crear cualquier app que:
 
 Tecnologías: Swift, UIKit, Storyboard, Xcode.
 
+Continuación: [Modo claro y oscuro con iconos tintados](MODO_CLARO_OSCURO.md).
+
 ---
 
 ## Índice
