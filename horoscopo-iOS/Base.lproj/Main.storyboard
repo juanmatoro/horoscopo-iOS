@@ -44,14 +44,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fvH-hrt-001">
+                                                    <rect key="frame" x="353" y="56" width="24" height="24"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="fvH-hrt-001" firstAttribute="width" constant="24" id="fvC-001-w"/>
+                                                <constraint firstItem="fvH-hrt-001" firstAttribute="height" constant="24" id="fvC-002-h"/>
+                                                <constraint firstItem="fvH-hrt-001" firstAttribute="centerY" secondItem="kco-lf-KMD" secondAttribute="centerY" id="fvC-003-cy"/>
+                                                <constraint firstAttribute="trailing" secondItem="fvH-hrt-001" secondAttribute="trailing" constant="16" id="fvC-004-tr"/>
                                                 <constraint firstItem="An8-ZT-00e" firstAttribute="leading" secondItem="kco-lf-KMD" secondAttribute="leading" constant="16" id="c01-im-lead"/>
                                                 <constraint firstItem="An8-ZT-00e" firstAttribute="centerY" secondItem="kco-lf-KMD" secondAttribute="centerY" id="c02-im-cy"/>
                                                 <constraint firstItem="An8-ZT-00e" firstAttribute="width" constant="59" id="c03-im-w"/>
                                                 <constraint firstItem="An8-ZT-00e" firstAttribute="height" constant="58" id="c04-im-h"/>
                                                 <constraint firstItem="9be-mM-R0H" firstAttribute="leading" secondItem="An8-ZT-00e" secondAttribute="trailing" constant="8" id="c05-nm-lead"/>
-                                                <constraint firstAttribute="trailing" secondItem="9be-mM-R0H" secondAttribute="trailing" constant="16" id="c06-nm-trail"/>
+                                                <constraint firstItem="fvH-hrt-001" firstAttribute="leading" secondItem="9be-mM-R0H" secondAttribute="trailing" constant="8" id="c06-nm-trail"/>
                                                 <constraint firstItem="9be-mM-R0H" firstAttribute="top" secondItem="kco-lf-KMD" secondAttribute="top" constant="16" id="c07-nm-top"/>
                                                 <constraint firstItem="wea-eS-shP" firstAttribute="leading" secondItem="9be-mM-R0H" secondAttribute="leading" id="c08-dt-lead"/>
                                                 <constraint firstItem="wea-eS-shP" firstAttribute="trailing" secondItem="9be-mM-R0H" secondAttribute="trailing" id="c09-dt-trail"/>
@@ -61,6 +69,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="wea-eS-shP" id="rlV-by-6NN"/>
+                                            <outlet property="favoriteImageView" destination="fvH-hrt-001" id="fvO-out-001"/>
                                             <outlet property="nameLabel" destination="9be-mM-R0H" id="Vcc-Nk-n61"/>
                                             <outlet property="signImageView" destination="An8-ZT-00e" id="Sfe-ws-7kn"/>
                                             <segue destination="doM-Mn-HRA" kind="show" id="cds-kx-CnQ"/>
@@ -127,6 +136,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-ind-001"/>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4r-7A-2j5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -147,17 +157,34 @@
 <constraint firstItem="dP1-pre-001" firstAttribute="top" secondItem="dS1-seg-001" secondAttribute="bottom" constant="24" id="d14-dt-vw"/>
 <constraint firstItem="dP1-pre-001" firstAttribute="leading" secondItem="dS1-seg-001" secondAttribute="leading" id="d15-dt-vw"/>
 <constraint firstItem="dP1-pre-001" firstAttribute="trailing" secondItem="dS1-seg-001" secondAttribute="trailing" id="d16-dt-vw"/>
-<constraint firstItem="dP1-pre-001" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="J4r-7A-2j5" secondAttribute="bottom" constant="-16" id="d17-dt-vw"/>
+<constraint firstItem="dAI-ind-001" firstAttribute="top" secondItem="dP1-pre-001" secondAttribute="bottom" constant="16" id="dAI-c01-top"/>
+                            <constraint firstItem="dAI-ind-001" firstAttribute="centerX" secondItem="zda-CX-UCo" secondAttribute="centerX" id="dAI-c02-cx"/>
+                            <constraint firstItem="dP1-pre-001" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="J4r-7A-2j5" secondAttribute="bottom" constant="-16" id="d17-dt-vw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="dD1-dat-001" id="dO1-out-001"/>
+                        <outlet property="favoriteBarButton" destination="dBF-fav-001" id="dO6-out-006"/>
+                        <outlet property="loadingIndicator" destination="dAI-ind-001" id="dO7-out-007"/>
                         <outlet property="nameLabel" destination="dN1-nam-001" id="dO2-out-002"/>
                         <outlet property="periodSegmentedControl" destination="dS1-seg-001" id="dO3-out-003"/>
                         <outlet property="predictionLabel" destination="dP1-pre-001" id="dO4-out-004"/>
                         <outlet property="signImageView" destination="dI1-img-001" id="dO5-out-005"/>
                     </connections>
-                    <navigationItem key="navigationItem" title="Detail" id="39D-f9-hx1"/>
+                    <navigationItem key="navigationItem" title="Detail" id="39D-f9-hx1">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="dBS-shr-001">
+                                <connections>
+                                    <action selector="shareButtonClicked:" destination="doM-Mn-HRA" id="dBS-act-001"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="heart" catalog="system" id="dBF-fav-001">
+                                <connections>
+                                    <action selector="favoriteButtonClicked:" destination="doM-Mn-HRA" id="dBF-act-001"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yma-kx-Wng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +211,11 @@
     </scenes>
     <resources>
         <image name="aquarius-icon" width="800" height="800"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

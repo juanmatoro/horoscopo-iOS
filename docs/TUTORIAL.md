@@ -7,9 +7,10 @@ y sirve de guía para crear cualquier app que:
 2. abra una **pantalla de detalle** al pulsar uno,
 3. y (en la parte final) obtenga los datos de una **API externa**.
 
-> **Estado del proyecto.** Los pasos 1 a 8 están implementados en este repositorio.
-> El paso 9 (API) está explicado como guía pero **todavía no está implementado**:
-> hoy el detalle muestra un texto de relleno en lugar de la predicción.
+> **Estado del proyecto.** Todos los pasos están implementados en este repositorio.
+> El paso 9 es una guía genérica con una API ficticia; la implementación real
+> (`Data/HoroscopeService.swift`, favoritos y compartir) está descrita en
+> [la comparativa con el proyecto del profesor](COMPARATIVA_PROFESOR.md).
 
 Tecnologías: Swift, UIKit, Storyboard, Xcode.
 
@@ -360,8 +361,9 @@ En el storyboard ponía "Detail" por defecto; al asignar
 
 ## 9. Conectar con una API externa
 
-> ⚠️ Esta sección es una **guía**; el proyecto aún no la tiene implementada.
-> `https://api.ejemplo.com` es un dominio ficticio: sustitúyelo por tu API real.
+> Esta sección es una **guía genérica**: usa `https://api.ejemplo.com`, un dominio
+> ficticio. El proyecto usa el mismo diseño con la API real; ver
+> `Data/HoroscopeService.swift`.
 
 La clave es no mezclar la red con las pantallas. Se hace en tres capas:
 

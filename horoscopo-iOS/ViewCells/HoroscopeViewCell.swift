@@ -2,7 +2,7 @@
 //  HoroscopeViewCell.swift
 //  horoscopo-iOS
 //
-//  Created by Turno Mananas on 18/11/2026.
+//  Created by Juanma on 18/11/2026.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ class HoroscopeViewCell: UITableViewCell {
     @IBOutlet weak var signImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +29,7 @@ class HoroscopeViewCell: UITableViewCell {
         dateLabel.text = horoscope.dates
         signImageView.image = horoscope.icon
         signImageView.tintColor = horoscope.color
+        favoriteImageView.isHidden = !SessionManager().isFavoriteHoroscope(id: horoscope.id)
     }
 
 }
