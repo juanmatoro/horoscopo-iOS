@@ -52,9 +52,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let horoscope else { return }
+        applyStyle(for: horoscope)
         title = horoscope.name
-        signImageView.image = horoscope.icon
-        signImageView.tintColor = horoscope.color
         nameLabel.text = horoscope.name
         dateLabel.text = horoscope.dates
         setupTranslation()
@@ -154,6 +153,31 @@ class DetailViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: String(localized: "The prediction could not be translated."), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: String(localized: "OK"), style: .default))
         present(alert, animated: true)
+    }
+
+    // Mismo lenguaje visual que la lista: colores del signo, esquinas redondeadas y tipografía escalable
+    private func applyStyle(for horoscope: Horoscope) {
+        view.backgroundColor = Style.screenColor
+
+        Style.styleSignIcon(signImageView, horoscope: horoscope, padding: 18, cornerRadius: 28)
+
+        nameLabel.font = Style.titleFont()
+        nameLabel.adjustsFontForContentSizeCategory = true
+        dateLabel.font = Style.captionFont()
+        dateLabel.textColor = .secondaryLabel
+        dateLabel.adjustsFontForContentSizeCategory = true
+
+        // Selección con un tono suave del color del signo: el texto sigue siendo legible en claro y oscuro
+        periodSegmentedControl.selectedSegmentTintColor = Style.iconBackground(for: horoscope.color)
+
+        // La predicción se muestra en una tarjeta
+        predictionLabel.font = Style.bodyFont()
+        predictionLabel.adjustsFontForContentSizeCategory = true
+        predictionLabel.backgroundColor = Style.cardColor
+        predictionLabel.layer.cornerRadius = Style.cornerRadius
+        predictionLabel.clipsToBounds = true
+
+        translateButton.tintColor = horoscope.color
     }
 
     private func updateFavoriteIcon() {

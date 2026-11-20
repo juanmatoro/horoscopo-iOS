@@ -31,6 +31,9 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        // Las filas son tarjetas separadas, así que no hacen falta líneas entre ellas
+        tableView.backgroundColor = Style.screenColor
+        tableView.separatorStyle = .none
         setupSearchController()
     }
 

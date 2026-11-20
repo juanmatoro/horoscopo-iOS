@@ -15,20 +15,28 @@ class HoroscopeViewCell: UITableViewCell {
     @IBOutlet weak var favoriteImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // El fondo lo pinta la tarjeta (ver updateConfiguration), no la celda entera
+        backgroundColor = .clear
+        nameLabel.font = Style.titleFont()
+        nameLabel.adjustsFontForContentSizeCategory = true
+        dateLabel.font = Style.captionFont()
+        dateLabel.textColor = .secondaryLabel
+        dateLabel.adjustsFontForContentSizeCategory = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // Dibuja la celda como una tarjeta con esquinas redondeadas y separación entre filas.
+    // Partir de listGroupedCell().updated(for:) conserva el color al pulsar la fila
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        var background = UIBackgroundConfiguration.listGroupedCell().updated(for: state)
+        background.cornerRadius = Style.cornerRadius
+        background.backgroundInsets = NSDirectionalEdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16)
+        backgroundConfiguration = background
     }
     
     func render(horoscope: Horoscope) {
         nameLabel.text = horoscope.name
         dateLabel.text = horoscope.dates
-        signImageView.image = horoscope.icon
-        signImageView.tintColor = horoscope.color
+        Style.styleSignIcon(signImageView, horoscope: horoscope, padding: 10, cornerRadius: 14)
         favoriteImageView.isHidden = !SessionManager().isFavoriteHoroscope(id: horoscope.id)
     }
 
